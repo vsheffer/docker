@@ -4,6 +4,7 @@ RUN groupadd -r mongodb && useradd -r -g mongodb mongodb
 
 RUN apt-get update \
 	&& apt-get install -y curl \
+	&& apt-get install -y dnsutils \
 	&& rm -rf /var/lib/apt/lists/*
 
 # grab gosu for easy step-down from root
@@ -31,4 +32,3 @@ COPY docker-entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
 
 EXPOSE 27019
-CMD ["/usr/local/bin/mongod --configsvr --dbpath /data/configdb --port 27019"]
