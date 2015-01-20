@@ -1,0 +1,9 @@
+replicaSets:
+  - replicaSet:
+    name : rs0
+    arbiterOnly : false
+    members : [
+        "host1",
+        "host2",
+        "host3"
+    ]
